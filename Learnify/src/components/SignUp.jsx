@@ -1,6 +1,11 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase-config';
 import { useState } from "react";
+import Logo from '../assets/Learnify_Logo.png';
+import Face_1 from '../assets/Design/Face-1.png';
+import Face_2 from '../assets/Design/Face-2.png';
+import Face_3 from '../assets/Design/Face-3.png';
+
 
 const Signup = () => {
     const [email, SetEmail] = useState("");  // Added an empty string as initial state
@@ -24,13 +29,41 @@ const Signup = () => {
 
 return(
 <div>
-<div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+<div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-primaryBG">
 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-  <img
-    className="mx-auto h-10 w-auto rounded-lg"
-    src="https://w0.peakpx.com/wallpaper/146/165/HD-wallpaper-deku-cute-cute-anime-cute-deku-lonely-anime-my-hero-academia.jpg"
-    alt="Your Company"
+  <img 
+    className="mx-auto h-[120px] w-auto"
+    src= {Logo}
+    alt="Learnify Logo"
   />
+
+<div className="flex flex-col p-4 justify-center">
+  <div className="flex flex-row justify-between"> {/* Use `gap-4` for spacing between images */}
+    <div>
+      <img 
+        className="mx-auto h-[100px] w-auto rounded-lg" 
+        src={Face_1} 
+       
+      />
+    </div>
+    <div>
+      <img 
+        className="mx-auto h-[100px] w-auto rounded-lg" 
+        src={Face_2} 
+        
+      />
+    </div>
+  </div>
+  <div>
+  <img 
+    className="mx-auto h-[100px] w-auto rounded-lg"
+    src= {Face_3}
+   
+  />
+  </div>
+</div>
+
+  <p className="text-xs text-center">Explore the wonders of physics through interactive AR learning experiences.</p>
   <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
     Create a account
   </h2>
@@ -69,7 +102,7 @@ return(
         <div className="text-sm">
           <a
             href="#"
-            className="font-semibold text-indigo-600 hover:text-indigo-500"
+            className="font-semibold text-secondary"
           >
             Forgot password?
           </a>
@@ -91,7 +124,7 @@ return(
     <div>
       <button
         type="submit"
-        className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="flex w-full justify-center rounded-md bg-secondary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primaryBlue hover:text-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         Sign in
       </button>
@@ -100,15 +133,18 @@ return(
 
   <p className="mt-10 text-center text-sm text-gray-500">
     Already a member?
+    
     <a
       href="/login"
-      className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+      className="font-semibold leading-6 text-secondary hover:text-primaryBlue"
     >
       Login
     </a>
   </p>
 
-  <div className="mt-10 flex flex-row gap-2">
+  <div className="mt-10 flex flex-col gap-2 justify-center">
+    <p className="text-xs">Login via</p>
+    <div className="flex flex-row  gap-2 justify-center">
     <button
       type="button"
       data-te-ripple-init
@@ -144,6 +180,7 @@ return(
       </svg>
       Twitter
     </button>
+    </div>
   </div>
 </div>
 </div>

@@ -20,6 +20,7 @@ export default {
       },
 
       fontSize: {
+        "xxs": "0.625rem",
         xs: "0.75rem",  // Small text (12px)
         sm: "0.875rem", // Standard mobile text (14px)
         base: "1rem",   // Default (16px)
