@@ -1,6 +1,6 @@
 // Landing Page
 
-// import React from "react"
+import BiologyImg from '../assets/Topics/Biology_img.png'
 
 const LandingPage = ()=>{
 
@@ -35,7 +35,7 @@ const LandingPage = ()=>{
     const subjectImages = [
     { id: 1, src: "https://via.placeholder.com/150", name: "Physics" },
     { id: 2, src: "https://via.placeholder.com/150", name: "Chemistry" },
-    { id: 3, src: "https://via.placeholder.com/150", name: "Biology" },
+    { id: 3, src: {BiologyImg}, name: "Biology" },
     { id: 4, src: "https://via.placeholder.com/150", name: "Engineering" },
   
     ]
@@ -83,7 +83,7 @@ const LandingPage = ()=>{
           </div>
             </div>
             </div>
-            <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+            <div className="max-w-md mx-auto  bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-bold text-secondary mb-4">Feedback Form</h2>
             
             <form className="space-y-4">
@@ -91,21 +91,21 @@ const LandingPage = ()=>{
               <input 
                 type="text" 
                 placeholder="Your Name" 
-                className="w-full p-3 bg-gray-100 text-black placeholder-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primaryBlue"
+                className="w-full p-3 bg-gray-100 text-black placeholder-lightGray border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primaryBlue"
               />
       
               {/* Email Input */}
               <input 
                 type="email" 
                 placeholder="Your Email" 
-                className="w-full p-3 bg-gray-100 text-black placeholder-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primaryBlue"
+                className="w-full p-3 bg-gray-100 text-black placeholder-lightGray border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primaryBlue"
               />
       
               {/* Thoughts Textarea */}
               <textarea 
                 placeholder="Your Thoughts..." 
                 rows="4"
-                className="w-full p-3 bg-gray-100 text-black placeholder-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primaryBlue"
+                className="w-full p-3 bg-gray-100 text-black placeholder-lightGray border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primaryBlue"
               ></textarea>
       
               {/* Submit Button */}
