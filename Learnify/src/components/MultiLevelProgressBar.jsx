@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Stepper, Step, StepLabel, Button, Box } from "@mui/material";
 import ARLogo from '../assets/Icons/noun-ar-2300882.svg'
+
+
 const steps = ["Level 1", "Level 2", "Level 3", "Level 4"];
 
 // eslint-disable-next-line react/prop-types
-const MultiStepProgressBar = ({completedSteps = 0}) => {
+const MultiLevelProgressBar = ({completedSteps = 0}) => {
   const [activeStep, setActiveStep] = useState(completedSteps);
 
   const handleNext = () => {
@@ -12,7 +14,7 @@ const MultiStepProgressBar = ({completedSteps = 0}) => {
   };
 
    return (
-    <Box sx={{ width: "100%", textAlign: "center", mt: 4 }}>
+    <Box sx={{ width: "70%", textAlign: "center" }}>
       <Stepper alternativeLabel>
         {steps.map((label, index) => {
           let stepProps = {};
@@ -38,14 +40,16 @@ const MultiStepProgressBar = ({completedSteps = 0}) => {
         })}
       </Stepper>
 
-      <Box sx={{ mt: 4 }}>
+      <Box sx={{ mt: 3 }}>
         
-        <Button variant="contained" onClick={handleNext}><img src={ARLogo} className="h-[24px]" />
-          {activeStep === steps.length ? "Restart" : "Launch"}
+        <Button variant="contained" onClick={handleNext}
+        className="!bg-secondary !text-primaryBlue !hover:bg-primaryBlue !hover:text-white flex items-center justify-center gap-2">
+          <img src={ARLogo} className="h-[24px] mt-1" />
+          {activeStep === steps.length ? "Restart" : "Resume"}
         </Button>
       </Box>
     </Box>
   );
 };
 
-export default MultiStepProgressBar;
+export default MultiLevelProgressBar;

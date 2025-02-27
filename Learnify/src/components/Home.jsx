@@ -3,156 +3,167 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { useState } from 'react'
 import Face_2 from '../assets/Design/Face-2.png'
-import Level_icon from '../assets/Icons/noun-level-5187033.svg'
-import Module_icon from '../assets/Icons/noun-dashboard-2222681.svg'
-import Quiz_icon from '../assets/Icons/noun-quiz-7110495.svg'
-import MultiStepProgressBar from "./MultiStepProgressBar";
+import MultiLevelProgressBar from "./MultiLevelProgressBar";
 import LevelProgress from "./LevelProgress";
 import Progress from 'react-circle-progress-bar'
 import LevelQuizElement from '../assets/Design/LevelQuiz.png'
 import Time from '../assets/Icons/noun-time-2741435.svg'
-
+import QuizNull from '../assets/Design/QuizNull.png'
+import { stats, subjects } from '../constants'
+import NoModule from "./NoModule";
 
 
 const Home = () => {
 
-    const [val, setVal] = useState('two');
+    const [val, setVal] = useState('Physics');
     const handleTab = (e, newVal) => {
         setVal(newVal);
     };
-
+    const tabStyles = {
+        backgroundColor: "white",
+        color: "black",
+        textTransform: "none",
+        "&.Mui-selected": {
+            backgroundColor: "white",
+            color: "black",
+        },
+    };
     return (
-        <div>
-            <div className="flex gap-4 items-center flex-row border-b-2 pb-3 border-lightGray justify-normal w-full">
+        <div className="flex flex-col min-h-screen">
+            <div className="flex items-center flex-row border-b-2 pb-3 border-lightGray justify-normal w-full">
                 <img
                     className="h-[50px] w-auto rounded-lg ml-4 justify-start"
                     src={Face_2}
                 />
                 <p className='text-lg'>Hello Neil!</p>
             </div>
-
-
             <div className="flex flex-row justify-between items-center gap-4 m-4 container mx-auto px-4">
-                {/* Component 1 */}
-                <div className="bg-white border-2 border-primaryBlue flex-1 flex flex-col items-start leading-tight rounded-xl shadow-md min-h-[100px] max-w-[110px] p-2">
-                    <img className="h-[24px] w-auto rounded-lg" src={Module_icon} alt="Modules" />
-                    <div className="text-4xl w-full text-center leading-none">4</div>
-                    <div className="text-xxs text-gray-600 w-full text-center">Modules Completed</div>
-                </div>
-
-                {/* Component 2 */}
-                <div className="bg-white border-2 border-primaryBlue flex-1 flex flex-col items-start leading-tight rounded-xl shadow-md min-h-[100px] max-w-[110px] p-2">
-                    <img className="h-[24px] w-auto rounded-lg" src={Level_icon} alt="Levels" />
-                    <div className="text-4xl w-full text-center leading-none">9</div>
-                    <div className="text-xxs text-gray-600 w-full text-center">Levels Unlocked</div>
-                </div>
-
-                {/* Component 3 */}
-                <div className="bg-white border-2 border-primaryBlue flex-1 flex flex-col items-start leading-tight rounded-xl shadow-md min-h-[100px] max-w-[110px] p-2">
-                    <img className="h-[24px] w-auto rounded-lg" src={Quiz_icon} alt="Quizzes" />
-                    <div className="text-4xl w-full text-center leading-none">5</div>
-                    <div className="text-xxs text-gray-600 w-full text-center">Quizzes Attempted</div>
-                </div>
+                {stats.map((stat, index) => (
+                    <div
+                        key={index}
+                        className="bg-white border-2 border-primaryBlue flex-1 flex flex-col items-start leading-tight rounded-xl shadow-md min-h-[100px] max-w-[110px] p-2"
+                    >
+                        <img className="h-[24px] w-auto rounded-lg" src={stat.icon} alt={stat.label} />
+                        <div className="text-4xl w-full text-center leading-none">{stat.value}</div>
+                        <div className="text-xxs text-gray-600 w-full text-center">{stat.label}</div>
+                    </div>
+                ))}
             </div>
-
             <div >
                 <Box className="bg-white">
                     <Tabs
                         value={val}
                         onChange={handleTab}
                         TabIndicatorProps={{
-                            style: {
-                                backgroundColor: "#02C8DA", height: 5
-                            }
+                            style: { backgroundColor: "#02C8DA", height: 5 },
                         }}
                     >
-                        <Tab value="Physics" label="Physics"
-                            sx={{
-                                backgroundColor: "white", color: "black",
-                                textTransform: "none",
-                                "&.Mui-selected": {
-                                    backgroundColor: "white",
-                                    color: "black",
-                                }
-                            }}
-                        />
-                        <Tab value="Biology" label="Biology"
-                            sx={{
-                                backgroundColor: "white", color: "black",
-                                textTransform: "none",
-                                "&.Mui-selected": {
-                                    backgroundColor: "white",
-                                    color: "black",
-                                }
-                            }}
-                        />
-                        <Tab value="Chemistry" label="Chemistry"
-                            sx={{
-                                backgroundColor: "white", color: "black",
-                                textTransform: "none",
-                                "&.Mui-selected": {
-                                    backgroundColor: "white",
-                                    color: "black",
-                                }
-                            }}
-                        />
-                        <Tab value="Engineering" label="Engineering" disabled
-                            sx={{
-                                backgroundColor: "white", color: "black",
-                                textTransform: "none",
-                                "&.Mui-selected": {
-                                    backgroundColor: "white",
-                                    color: "black",
-                                }
-                            }}
-                        />
+                        {subjects.map((subject) => (
+                            <Tab key={subject} value={subject} label={subject} sx={tabStyles} />
+                        ))}
                     </Tabs>
-                </Box>
-
+                </Box>;
                 <div className="pt-4">
                     {val === "Physics" &&
-                        <div className=" bg-white border rounded-lg border-darkGray">
-                            <div className="ml-4 mt-4 mb-4 justify-between items-center ">
-                                <p className="text-xl">Electric Circuits</p>
+                        <div className="m-4 bg-white border rounded-lg border-darkGray">
+                            <div className=" justify-between items-center ">
+                                <p className="m-4 justify-start text-xl">Electric Circuits</p>
+                                <p className="m-4 text-base justify-start">Your Progress</p>
+                                <div className="flex flex-row border-b-2 pb-4 items-center ">
+                                    <MultiLevelProgressBar completedSteps={3} />
+                                    <div className="flex flex-col items-center">
+                                        {/* Progress in Center */}
+                                        <Progress style={{ width: "75px", height: "75px" }} strokeWidth={10} progress={75} subtitle="Quiz Score 15/70" />
 
-                                <div className="flex flex-row border-b-2 pb-4">
-                                    <div className="flex flex-col">
-                                        <p className="text-base">Your Progress</p>
-                                        <MultiStepProgressBar completedSteps={3} />
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <Progress style={{ width: "100px", height: "100px" }} strokeWidth={6} progress={75} subtitle="Quiz Score 15/70" />
-                                        <div className="flex flex-col">
-                                            <img className="h-[48px]" src={Time} />
-                                            <p className="text-xs text-center">Avg Time Required:<br></br>20 mins</p>
+                                        {/* Time Info Below Progress */}
+                                        <div className="flex flex-row items-center mt-4 ">
+                                            <img className="h-[32px]" src={Time} />
+                                            <p className="text-xs text-center">Avg Time:<br />20 mins</p>
+
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-row">
-                                    <div className="w-[300px]">
+                                <div className="flex flex-row items-center justify-center gap-4">
+                                    {/* Progress Bar */}
+                                    <div className="w-[300px] flex items-center">
                                         <LevelProgress progress={50} level="Level 1: Simple Circuits" />
                                     </div>
-                                    <div className="items-center">
-                                        <img src={LevelQuizElement} ></img>
+
+                                    {/* Quiz Image */}
+                                    <div className="flex flex-col  items-center">
+                                        <img src={LevelQuizElement} className="h-auto pt-2 max-w-full" />
+                                        <p className="text-xs">Score: 1/3</p>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-row">
-                                    <div className="text-center w-[300px]">
-                                        <LevelProgress progress={20} level="Level 1: Simple Circuits" />
+                                <div className="flex flex-row items-center justify-center gap-4">
+                                    {/* Progress Bar */}
+                                    <div className="w-[300px] flex items-center">
+                                        <LevelProgress progress={20} level="Level 2: Series Circuits" />
                                     </div>
-                                    <div className="text-center  flex justify-around text-xs">
-                                        Yet to Begin Quiz
+
+                                    {/* Quiz Image */}
+                                    <div className="flex flex-col items-center">
+                                        <img src={QuizNull} className="h-auto  mt-2 max-w-full" />
+                                        <p className="text-xs">Score: N/A</p>
                                     </div>
                                 </div>
-                                </div>
+                            </div>
                         </div>}
 
 
-                    {val === "two" && <div>🎥 Video Tutorials and Guides</div>}
-                    {val === "three" && <div>✍️ Interactive Practice Exercises</div>}
-                    {val === "four" && <div>📝 Blog Posts and Articles</div>}
+                    {val === "Biology" &&
+                     <div className="m-4 bg-white border rounded-lg border-darkGray">
+                     <div className=" justify-between items-center ">
+                         <p className="m-4 justify-start text-xl">Human Head</p>
+                         <p className="m-4 text-base justify-start">Your Progress</p>
+                         <div className="flex flex-row border-b-2 pb-4 items-center ">
+                             <MultiLevelProgressBar completedSteps={2} />
+                             <div className="flex flex-col items-center">
+                                 {/* Progress in Center */}
+                                 <Progress style={{ width: "75px", height: "75px" }} strokeWidth={10} progress={60} subtitle="Quiz Score 5/15" />
+
+                                 {/* Time Info Below Progress */}
+                                 <div className="flex flex-row items-center mt-4 ">
+                                     <img className="h-[32px]" src={Time} />
+                                     <p className="text-xs text-center">Avg Time:<br />10 mins</p>
+
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div className="flex flex-row items-center justify-center gap-4">
+                             {/* Progress Bar */}
+                             <div className="w-[300px] flex items-center">
+                                 <LevelProgress progress={90} level="Level 1: Simple Circuits" />
+                             </div>
+
+                             {/* Quiz Image */}
+                             <div className="flex flex-col  items-center">
+                                 <img src={LevelQuizElement} className="h-auto pt-2 max-w-full" />
+                                 <p className="text-xs">Score: 3/5</p>
+                             </div>
+                         </div>
+
+                         <div className="flex flex-row items-center justify-center gap-4">
+                             {/* Progress Bar */}
+                             <div className="w-[300px] flex items-center">
+                                 <LevelProgress progress={50} level="Level 2: Series Circuits" />
+                             </div>
+
+                             {/* Quiz Image */}
+                             <div className="flex flex-col items-center">
+                                 <img src={QuizNull} className="h-auto  mt-2 max-w-full" />
+                                 <p className="text-xs">Score: N/A</p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                     }
+                    {val === "Chemistry" && <div><NoModule /></div>}
+                    {val === "Engineering" && <div><NoModule /></div>}
+
                 </div>
             </div>
 

@@ -1,47 +1,18 @@
 // Landing Page
-
-import BiologyImg from '../assets/Topics/Biology_img.png'
+import { featureItems, subjectImages } from '../constants' 
+import LandingGIF from '../assets/Design/Landing.gif'
 
 const LandingPage = ()=>{
 
-    const featureItems = [
-        {
-            id:1,
-            icon: "icon",
-            title: "Fun & Interactive",
-            description: "Game-like elements makes learning engaging"
-        },
-        {
-            id:2,
-            icon: "",
-            title: "Engagement & Motivation",
-            description: "Game-like elements makes learning engaging"
-        },
-        {
-            id:3,
-            icon: "",
-            title: "Fun & Interactive",
-            description: "Game-like elements makes learning engaging"
-        },
-        {
-            id:4,
-            icon: "",
-            title: "Fun & Interactive",
-            description: "Game-like elements makes learning engaging"
-        },
-    ]
-
-
-    const subjectImages = [
-    { id: 1, src: "https://via.placeholder.com/150", name: "Physics" },
-    { id: 2, src: "https://via.placeholder.com/150", name: "Chemistry" },
-    { id: 3, src: {BiologyImg}, name: "Biology" },
-    { id: 4, src: "https://via.placeholder.com/150", name: "Engineering" },
-  
-    ]
     return(
         <div className="flex flex-col">
-            <div>Landing Image</div>
+            <div className='flex bg-gradient-to-t from-primaryBG to-secondary justify-around'>
+              <img className='border-8 rounded-xl border-white' src={LandingGIF} />
+              <button className="absolute  bottom-4 left-1/2 transform -translate-x-1/2 bg-primaryBlue text-secondary px-4 py-2 border-2 border-darkGray rounded-lg">
+  Launch App
+</button>
+
+  </div>
             <div>
                 <div className="feature-list flex flex-col p-8 border-b border-textColor">
                 <h3 className="text-center">Features</h3>
@@ -49,7 +20,7 @@ const LandingPage = ()=>{
                 {featureItems.map((item) => (
                   <div key={item.id} className="flex items-start space-x-4 p-3">
                     {/* Icon */}
-                    <div className="text-xl">{item.icon}</div>
+                    <img className="h-[48px]" src={item.icon}/>
           
                     {/* Text Content */}
                     <div>

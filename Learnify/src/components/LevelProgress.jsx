@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 
 
-const SimpleProgressBar = ({ progress = 0 , level = "Level"}) => {
+const SimpleProgressBar = ({ progress = 0 , level = "Completed"}) => {
   return (
     <div className="w-full mt-5">
       <div className="flex justify-between items-center">
