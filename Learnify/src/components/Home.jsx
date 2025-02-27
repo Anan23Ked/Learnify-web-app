@@ -6,7 +6,7 @@ import Face_2 from '../assets/Design/Face-2.png'
 import Level_icon from '../assets/Icons/noun-level-5187033.svg'
 import Module_icon from '../assets/Icons/noun-dashboard-2222681.svg'
 import Quiz_icon from '../assets/Icons/noun-quiz-7110495.svg'
-import MultiStepProgressBar from "./Dashboard";
+import MultiStepProgressBar from "./MultiStepProgressBar";
 import LevelProgress from "./LevelProgress";
 import Progress from 'react-circle-progress-bar'
 import LevelQuizElement from '../assets/Design/LevelQuiz.png'
