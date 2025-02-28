@@ -7,7 +7,7 @@ import Face_2 from '../assets/Design/Face-2.png';
 import Face_3 from '../assets/Design/Face-3.png';
 import PropTypes from "prop-types";
 
-const Signup = ({onLogin}) => {
+const Signup = ({onLogin = 0}) => {
     const [email, SetEmail] = useState("");  // Added an empty string as initial state
     const [password, setPassword] = useState("");
 

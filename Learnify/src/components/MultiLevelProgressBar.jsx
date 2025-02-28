@@ -1,28 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Stepper, Step, StepLabel, Button, Box } from "@mui/material";
-import ARLogo from '../assets/Icons/noun-ar-white.svg'
-
+import { useNavigate } from "react-router-dom";
+import ARLogo from "../assets/Icons/noun-ar-white.svg";
 
 const steps = ["Level 1", "Level 2", "Level 3", "Level 4"];
 
-// eslint-disable-next-line react/prop-types
-const MultiLevelProgressBar = ({completedSteps = 0, ARLink = "#"}) => {
-
-  // const [showModal, setShowModal] = useState(false);
+const MultiLevelProgressBar = ({ completedSteps = 0, ARLink = "#" }) => {
   const [activeStep, setActiveStep] = useState(completedSteps);
+  const navigate = useNavigate();
 
-  const handleNext = (e) => {
-   
-    if (activeStep < steps.length - 1) setActiveStep((prevStep) => prevStep + 1);
-    if (ARLink && ARLink !== "#"){
-      window.open(ARLink,"_self")
+  useEffect(() => {
+    const returnTo = sessionStorage.getItem("returnTo");
+    if (returnTo) {
+      sessionStorage.removeItem("returnTo");
+      navigate(returnTo, { replace: true }); // Use navigate instead of window.location.replace
     }
-    
-    
-    
+  }, [navigate]);
+
+  const handleNext = () => {
+    if (activeStep < steps.length - 1) setActiveStep((prevStep) => prevStep + 1);
+
+    if (ARLink && ARLink !== "#") {
+      sessionStorage.setItem("returnTo", window.location.pathname);
+      window.location.href = ARLink;
+    }
   };
 
-   return (
+  return (
     <Box sx={{ width: "70%", textAlign: "center" }}>
       <Stepper alternativeLabel>
         {steps.map((label, index) => {
@@ -30,14 +34,11 @@ const MultiLevelProgressBar = ({completedSteps = 0, ARLink = "#"}) => {
           let labelProps = {};
 
           if (index <= activeStep - 1) {
-            // Steps before the one next to activeStep -> Completed (Green)
             stepProps.completed = true;
             labelProps.sx = { color: "green" };
           } else if (index === activeStep || index === activeStep + 1) {
-            // Active step and the one next to it -> In Progress (Blue)
             labelProps.sx = { color: "blue" };
           } else {
-            // Future steps -> Not Started (Gray)
             labelProps.sx = { color: "gray" };
           }
 
@@ -50,9 +51,11 @@ const MultiLevelProgressBar = ({completedSteps = 0, ARLink = "#"}) => {
       </Stepper>
 
       <Box sx={{ mt: 3 }}>
-        
-        <Button variant="contained" onClick={handleNext}
-        className="!bg-secondary !text-white !hover:bg-primaryBlue !hover:text-white flex items-center justify-center gap-2">
+        <Button
+          variant="contained"
+          onClick={handleNext}
+          className="!bg-secondary !text-white !hover:bg-primaryBlue !hover:text-white flex items-center justify-center gap-2"
+        >
           <img src={ARLogo} className="h-[24px] mt-1" />
           {activeStep === steps.length ? "Restart" : "Resume"}
         </Button>

@@ -10,7 +10,13 @@ import Modules from './components/Modules';
 import WelcomeScreen from './components/WelcomeScreen';
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("isAuthenticated") === "true"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("isAuthenticated", isAuthenticated);
+  }, [isAuthenticated]);
   const [showWelcomeScreen, setShowWelcomeScreen] = useState(false);
 
   // Handle successful login

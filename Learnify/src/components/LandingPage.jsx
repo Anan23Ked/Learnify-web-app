@@ -3,6 +3,7 @@ import { featureItems, subjectImages } from '../constants'
 import LandingGIF from '../assets/Design/Landing.gif'
 import PropTypes from "prop-types";
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer'
 
 const LandingPage = ()=>{
 
@@ -126,6 +127,7 @@ const LandingPage = ()=>{
               </button>
             </form>
           </div>
+          <Footer />
         </div>
     )
 }

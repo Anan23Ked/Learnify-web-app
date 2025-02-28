@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -16,11 +16,30 @@ const Modules = ({ item }) => {
         setVal(newVal);
     };
 
-    const handleLaunchClick = (e) => {
+    useEffect(() => {
+        const returnTo = sessionStorage.getItem('returnTo');
+        if (returnTo) {
+            sessionStorage.removeItem('returnTo');
+            window.history.replaceState(null, '', returnTo);
+        }
+    }, [])
 
-        if (!item?.link) {
+    const handleLaunchClick = (e, currentItem) => {
+        // Use the currentItem passed to the function or fall back to the component prop
+        const linkItem = currentItem || item;
+        
+        if (!linkItem?.link) {
             e.preventDefault();
-            setShowModal(true)
+            setShowModal(true);
+        } else {
+            // Save current location before navigating
+            // const currentPage = window.location.href;
+            // // Store it in session storage
+            // sessionStorage.setItem('returnTo', currentPage);
+            // window.open(linkItem, "_self");
+
+            sessionStorage.setItem('returnTo', window.location.href); // Save current page
+            window.location.href = linkItem.link; 
         }
     };
 
@@ -101,17 +120,19 @@ const Modules = ({ item }) => {
                                     {/* Progress Bar */}
                                     {/* <div className="w-full h-[50px]">
                         <LevelProgress progress={50} />
-                    </div> */}
 
-<a
+                    </div> */}
+                                    
+                                    <a
                                         href={item.link || "#"}
-                                        onClick={handleLaunchClick}
+                                       
+                                        onClick={(e) => handleLaunchClick(e, item)}
                                         className="bg-secondary border-2 border-primaryBlue rounded-xl flex flex-row items-center justify-center px-3 py-2 gap-2"
                                     >
                                         <img className="h-[24px] w-[24px] mt-1" src={ARLogo} />
                                         <p className="text-base pr-2 text-white">Launch</p>
                                     </a>
- 
+
                                     {/* Modal */}
                                     {showModal && (
                                         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -156,7 +177,7 @@ const Modules = ({ item }) => {
                                     {/* <div className="w-full h-[4px]">
                 <LevelProgress progress={50} />
             </div> */}
-
+prr{item.link}
                                     <a
                                         href={item.link || "#"}
                                         onClick={handleLaunchClick}
