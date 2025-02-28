@@ -1,4 +1,4 @@
-import ModulesIcon from '../assets/Icons/noun-dashboard-7435348.svg'
+import ModulesIcon from '../assets/Icons/noun-dasboard-7336303.svg'
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import HomeIcon from '../assets/Icons/noun-home-7548327.svg'
 import SettingsIcon from '../assets/Icons/noun-settings-816143.svg'

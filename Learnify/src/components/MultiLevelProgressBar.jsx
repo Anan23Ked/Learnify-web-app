@@ -1,16 +1,25 @@
 import { useState } from "react";
 import { Stepper, Step, StepLabel, Button, Box } from "@mui/material";
-import ARLogo from '../assets/Icons/noun-ar-2300882.svg'
+import ARLogo from '../assets/Icons/noun-ar-white.svg'
 
 
 const steps = ["Level 1", "Level 2", "Level 3", "Level 4"];
 
 // eslint-disable-next-line react/prop-types
-const MultiLevelProgressBar = ({completedSteps = 0}) => {
+const MultiLevelProgressBar = ({completedSteps = 0, ARLink = "#"}) => {
+
+  // const [showModal, setShowModal] = useState(false);
   const [activeStep, setActiveStep] = useState(completedSteps);
 
-  const handleNext = () => {
+  const handleNext = (e) => {
+   
     if (activeStep < steps.length - 1) setActiveStep((prevStep) => prevStep + 1);
+    if (ARLink && ARLink !== "#"){
+      window.open(ARLink,"_self")
+    }
+    
+    
+    
   };
 
    return (
@@ -43,7 +52,7 @@ const MultiLevelProgressBar = ({completedSteps = 0}) => {
       <Box sx={{ mt: 3 }}>
         
         <Button variant="contained" onClick={handleNext}
-        className="!bg-secondary !text-primaryBlue !hover:bg-primaryBlue !hover:text-white flex items-center justify-center gap-2">
+        className="!bg-secondary !text-white !hover:bg-primaryBlue !hover:text-white flex items-center justify-center gap-2">
           <img src={ARLogo} className="h-[24px] mt-1" />
           {activeStep === steps.length ? "Restart" : "Resume"}
         </Button>

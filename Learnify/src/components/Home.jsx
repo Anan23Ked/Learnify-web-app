@@ -15,7 +15,7 @@ import NoModule from "./NoModule";
 
 const Home = () => {
 
-    const [val, setVal] = useState('Physics');
+    const [val, setVal] = useState('Biology');
     const handleTab = (e, newVal) => {
         setVal(newVal);
     };
@@ -71,7 +71,7 @@ const Home = () => {
                                 <p className="m-4 justify-start text-xl">Electric Circuits</p>
                                 <p className="m-4 text-base justify-start">Your Progress</p>
                                 <div className="flex flex-row border-b-2 pb-4 items-center ">
-                                    <MultiLevelProgressBar completedSteps={3} />
+                                    <MultiLevelProgressBar completedSteps={2} ARLink= "https://lens.snap.com/experience/2f89d9d9-ce58-4098-b450-eb34c27bbeef" />
                                     <div className="flex flex-col items-center">
                                         {/* Progress in Center */}
                                         <Progress style={{ width: "75px", height: "75px" }} strokeWidth={10} progress={75} subtitle="Quiz Score 15/70" />
@@ -125,7 +125,7 @@ const Home = () => {
                          <p className="m-4 justify-start text-xl">Human Head</p>
                          <p className="m-4 text-base justify-start">Your Progress</p>
                          <div className="flex flex-row border-b-2 pb-4 items-center ">
-                             <MultiLevelProgressBar completedSteps={2} />
+                             <MultiLevelProgressBar completedSteps={2} ARLink="https://lens.snap.com/experience/34497d7b-d99d-4e87-924c-e1345f64b397"/>
                              <div className="flex flex-col items-center">
                                  {/* Progress in Center */}
                                  <Progress style={{ width: "75px", height: "75px" }} strokeWidth={10} progress={60} subtitle="Quiz Score 5/15" />
@@ -166,13 +166,13 @@ const Home = () => {
                          </div>
                      </div>
                  </div>
-                 
+                  
                  <div className="pb-2  bg-white border rounded-lg border-darkGray">
                      <div className=" justify-between items-center ">
-                         <p className="m-4 justify-start text-xl">Human Head</p>
+                         <p className="m-4 justify-start text-xl">Facial Muscles</p>
                          <p className="m-4 text-base justify-start">Your Progress</p>
                          <div className="flex flex-row border-b-2 pb-4 items-center ">
-                             <MultiLevelProgressBar completedSteps={2} />
+                             <MultiLevelProgressBar completedSteps={1} ARLink="https://lens.snap.com/experience/aa29e045-c7dc-47c8-9a5b-8b768217c30c"/>
                              <div className="flex flex-col items-center">
                                  {/* Progress in Center */}
                                  <Progress style={{ width: "75px", height: "75px" }} strokeWidth={10} progress={60} subtitle="Quiz Score 5/15" />
@@ -182,14 +182,14 @@ const Home = () => {
                                      <img className="h-[32px]" src={Time} />
                                      <p className="text-xs text-center">Avg Time:<br />10 mins</p>
 
-                                 </div>
+                                 </div> 
                              </div>
                          </div>
 
                          <div className="flex flex-row items-center justify-center gap-4">
                              {/* Progress Bar */}
                              <div className="w-[250px] flex items-center">
-                                 <LevelProgress progress={90} level="Level 1: Simple Circuits" />
+                                 <LevelProgress progress={90} level="Level 1: Muscles Movements" />
                              </div>
 
                              {/* Quiz Image */}
@@ -202,7 +202,7 @@ const Home = () => {
                          <div className="flex flex-row items-center justify-center gap-4">
                              {/* Progress Bar */}
                              <div className="w-[250px] flex items-center">
-                                 <LevelProgress progress={50} level="Level 2: Series Circuits" />
+                                 <LevelProgress progress={50} level="Level 2: Muscles Functionalities" />
                              </div>
 
                              {/* Quiz Image */}

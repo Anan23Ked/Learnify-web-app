@@ -14,6 +14,7 @@ const Settings = () =>{
                 />
                 <p className='text-lg'>Hello Neil!</p>
             </div>
+            <p className='text-center text-base'>Share us your app experience </p>
         </div>
     )
 }
