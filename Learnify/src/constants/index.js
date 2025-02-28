@@ -57,7 +57,7 @@ export const subjectImages = [
   
     ]
 
-export const subjects = ["Physics", "Biology", "Chemistry", "Engineering"];
+export const subjects = ["Biology","Physics",  "Chemistry", "Engineering"];
 
 export const stats = [
         { icon: Module_icon, value: 4, label: "Modules Completed" },

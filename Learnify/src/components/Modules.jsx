@@ -5,17 +5,17 @@ import Box from "@mui/material/Box";
 import LearnifyLogo from '../assets/Learnify_Logo.png'
 import ARLogo from '../assets/Icons/noun-ar-2300882.svg'
 import { PHYSICS, BIOLOGY } from '../constants';
-
+// import LevelProgress from './LevelProgress'
 const Modules = () => {
 
-    const [val, setVal] = useState('Physics');
+    const [val, setVal] = useState('Biology');
     const handleTab = (e, newVal) => {
         setVal(newVal);
     };
 
     return (
-        <div className='flex flex-col min-h-screen"'>
-
+        <div className="w-full max-w-full overflow-x-hidden">
+       
             <div className="flex border-b-2 pb-3 justify-center items-center border-lightGray w-full">
                 <img
                     className="h-[100px] w-auto rounded-lg"
@@ -25,7 +25,7 @@ const Modules = () => {
 
             <p className='m-4 text-3xl font-medium'>Subjects</p>
 
-            <Box className="p-2">
+            <Box className="p-2 overflow-x-auto">
                 <Tabs
                     value={val}
                     onChange={handleTab}
@@ -36,7 +36,7 @@ const Modules = () => {
                         minHeight: "auto"
                     }}
                 >
-                    {["Physics", "Biology", "Chemistry", "Engineering"].map((label, index) => (
+                    {[ "Biology","Physics", "Chemistry", "Engineering"].map((label, index) => (
                         <Tab
                             key={index}
                             value={label}
@@ -68,7 +68,7 @@ const Modules = () => {
             </Box>
 
             {val === "Physics" &&
-                <div className="m-4">
+                <div className="px-2 sm:px-4">
                     <p className="text-lg font-medium">Physics Modules</p>
                     <div>
                         {PHYSICS.map((item, index) => (
@@ -79,7 +79,7 @@ const Modules = () => {
                                 <div
                                     className="ModuleInfo flex flex-row items-center gap-4">
                                     <img className="h-[100px] w-[100px] object-contain" src={item.image} />
-                                    <div className="flex flex-col justify-center">
+                                    <div className="flex flex-col justify-center flex-1 min-w-0">
                                         <p className="text-lg font-semibold">{item.title}</p>
                                         <p className="text-xs">{item.description}</p>
                                     </div>
@@ -88,7 +88,7 @@ const Modules = () => {
                                 {/* Progress and Launch Button */}
                                 <div className="flex flex-col items-center gap-2">
                                     {/* Progress Bar */}
-                                    {/* <div className="w-full h-[4px]">
+                                     {/* <div className="w-full h-[50px]">
                         <LevelProgress progress={50} />
                     </div> */}
 
@@ -139,8 +139,9 @@ const Modules = () => {
             </div>
         </div>}
 
-
         </div>
+        
+        
     )
 }
 

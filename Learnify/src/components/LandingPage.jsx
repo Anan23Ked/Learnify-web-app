@@ -1,18 +1,56 @@
 // Landing Page
 import { featureItems, subjectImages } from '../constants' 
 import LandingGIF from '../assets/Design/Landing.gif'
+import PropTypes from "prop-types";
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = ()=>{
+
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    console.log("Navigating to signup page"); // Debug log
+    navigate('/signup');
+  };
+
+  const handleLogin = () => {
+    console.log("Navigating to login page"); // Debug log
+    navigate('/login');
+  };
 
     return(
         <div className="flex flex-col">
             <div className='flex bg-gradient-to-t from-primaryBG to-secondary justify-around'>
               <img className='border-8 rounded-xl border-white' src={LandingGIF} />
-              <button className="absolute  bottom-4 left-1/2 transform -translate-x-1/2 bg-primaryBlue text-secondary px-4 py-2 border-2 border-darkGray rounded-lg">
-  Launch App
-</button>
+              
 
   </div>
+  <div className="flex flex-col items-center gap-4 w-full">
+  <div className="flex justify-center gap-6 w-full max-w-md">
+    <div className="flex flex-col items-center w-1/2">
+      <p className="text-sm text-gray-600 text-center mb-2">A new user? Click here</p>
+      <button 
+        className="w-full bg-primaryBlue text-secondary px-4 py-2 border-2 border-darkGray rounded-lg"
+        onClick={handleGetStarted}
+      >
+        Launch App
+      </button>
+    </div>
+
+    <div className="flex flex-col items-center w-1/2">
+      <p className="text-sm text-gray-600 text-center mb-2">Existing user?</p>
+      <button 
+        onClick={handleLogin}
+        className="w-full bg-secondary text-primary border-2 border-darkGray px-4 py-2 rounded-lg"
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
             <div>
                 <div className="feature-list flex flex-col p-8 border-b border-textColor">
                 <h3 className="text-center">Features</h3>
@@ -91,4 +129,9 @@ const LandingPage = ()=>{
         </div>
     )
 }
+
+LandingPage.propTypes = {
+  onGetStarted: PropTypes.bool.isRequired,
+  
+};
 export default LandingPage

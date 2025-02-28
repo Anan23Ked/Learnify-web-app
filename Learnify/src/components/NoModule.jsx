@@ -5,11 +5,11 @@ const NoModule =() =>{
     return(
         <div>
            <div className='flex w-full text-center flex-col'>
-            <div>
-                <img className="flex justify-center items-center w-full" src={LearnifyLogo} />
-            </div>
-            <p className='text-xl'>We are yet to develop the perfect AR experience for you for this subject</p>
-            <p className='text-base'>Why dont you check out the available subjects and this will get intresting very soon!! </p>
+           <div className="flex justify-center">
+           <img className="h-[150px] w-[150px]" src={LearnifyLogo} />
+         </div>
+         <p className='text-xl'>We are yet to develop the perfect AR experience for you for this subject</p>
+            <p className='text-base'>Why dont you check out the available subjects and this will get interesting very soon!! </p>
            <div><img className="h-[100px] flex justify-center items-center w-full" src= {ARLogo} /></div>
            <p className='text-base'>We are working towards building</p>
            <p className='text-sm'>✍️ Interactive Practice Exercises</p>

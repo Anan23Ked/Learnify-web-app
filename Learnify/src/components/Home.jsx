@@ -63,9 +63,10 @@ const Home = () => {
                         ))}
                     </Tabs>
                 </Box>;
-                <div className="pt-4">
+                <div className="pt-1">
                     {val === "Physics" &&
-                        <div className="m-4 bg-white border rounded-lg border-darkGray">
+                        <div>
+                        <div className="pb-2 bg-white border rounded-lg border-darkGray">
                             <div className=" justify-between items-center ">
                                 <p className="m-4 justify-start text-xl">Electric Circuits</p>
                                 <p className="m-4 text-base justify-start">Your Progress</p>
@@ -86,12 +87,12 @@ const Home = () => {
 
                                 <div className="flex flex-row items-center justify-center gap-4">
                                     {/* Progress Bar */}
-                                    <div className="w-[300px] flex items-center">
+                                    <div className="w-[250px] flex items-center">
                                         <LevelProgress progress={50} level="Level 1: Simple Circuits" />
                                     </div>
 
                                     {/* Quiz Image */}
-                                    <div className="flex flex-col  items-center">
+                                    <div className="flex flex-col m-2 items-center">
                                         <img src={LevelQuizElement} className="h-auto pt-2 max-w-full" />
                                         <p className="text-xs">Score: 1/3</p>
                                     </div>
@@ -99,22 +100,27 @@ const Home = () => {
 
                                 <div className="flex flex-row items-center justify-center gap-4">
                                     {/* Progress Bar */}
-                                    <div className="w-[300px] flex items-center">
+                                    <div className="w-[250px] flex items-center">
                                         <LevelProgress progress={20} level="Level 2: Series Circuits" />
                                     </div>
 
                                     {/* Quiz Image */}
-                                    <div className="flex flex-col items-center">
-                                        <img src={QuizNull} className="h-auto  mt-2 max-w-full" />
+                                    <div className="flex flex-col m-2 items-center">
+                                        <img src={QuizNull} className="h-auto  pt-2 max-w-full" />
                                         <p className="text-xs">Score: N/A</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+
+                    
                         </div>}
 
 
                     {val === "Biology" &&
-                     <div className="m-4 bg-white border rounded-lg border-darkGray">
+                        <div>
+                     <div className=" mb-4 pb-2 bg-white border rounded-lg border-darkGray">
                      <div className=" justify-between items-center ">
                          <p className="m-4 justify-start text-xl">Human Head</p>
                          <p className="m-4 text-base justify-start">Your Progress</p>
@@ -135,7 +141,7 @@ const Home = () => {
 
                          <div className="flex flex-row items-center justify-center gap-4">
                              {/* Progress Bar */}
-                             <div className="w-[300px] flex items-center">
+                             <div className="w-[250px] flex items-center">
                                  <LevelProgress progress={90} level="Level 1: Simple Circuits" />
                              </div>
 
@@ -148,7 +154,7 @@ const Home = () => {
 
                          <div className="flex flex-row items-center justify-center gap-4">
                              {/* Progress Bar */}
-                             <div className="w-[300px] flex items-center">
+                             <div className="w-[250px] flex items-center">
                                  <LevelProgress progress={50} level="Level 2: Series Circuits" />
                              </div>
 
@@ -160,7 +166,56 @@ const Home = () => {
                          </div>
                      </div>
                  </div>
-                     }
+                 
+                 <div className="pb-2  bg-white border rounded-lg border-darkGray">
+                     <div className=" justify-between items-center ">
+                         <p className="m-4 justify-start text-xl">Human Head</p>
+                         <p className="m-4 text-base justify-start">Your Progress</p>
+                         <div className="flex flex-row border-b-2 pb-4 items-center ">
+                             <MultiLevelProgressBar completedSteps={2} />
+                             <div className="flex flex-col items-center">
+                                 {/* Progress in Center */}
+                                 <Progress style={{ width: "75px", height: "75px" }} strokeWidth={10} progress={60} subtitle="Quiz Score 5/15" />
+
+                                 {/* Time Info Below Progress */}
+                                 <div className="flex flex-row items-center mt-4 ">
+                                     <img className="h-[32px]" src={Time} />
+                                     <p className="text-xs text-center">Avg Time:<br />10 mins</p>
+
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div className="flex flex-row items-center justify-center gap-4">
+                             {/* Progress Bar */}
+                             <div className="w-[250px] flex items-center">
+                                 <LevelProgress progress={90} level="Level 1: Simple Circuits" />
+                             </div>
+
+                             {/* Quiz Image */}
+                             <div className="flex flex-col  items-center">
+                                 <img src={LevelQuizElement} className="h-auto pt-2 max-w-full" />
+                                 <p className="text-xs">Score: 3/5</p>
+                             </div>
+                         </div>
+
+                         <div className="flex flex-row items-center justify-center gap-4">
+                             {/* Progress Bar */}
+                             <div className="w-[250px] flex items-center">
+                                 <LevelProgress progress={50} level="Level 2: Series Circuits" />
+                             </div>
+
+                             {/* Quiz Image */}
+                             <div className="flex flex-col items-center">
+                                 <img src={QuizNull} className="h-auto  mt-2 max-w-full" />
+                                 <p className="text-xs">Score: N/A</p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                     </div>
+                    }
                     {val === "Chemistry" && <div><NoModule /></div>}
                     {val === "Engineering" && <div><NoModule /></div>}
 
