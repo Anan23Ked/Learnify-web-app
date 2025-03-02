@@ -35,7 +35,7 @@ const Home = () => {
                     className="h-[50px] w-auto rounded-lg ml-4 justify-start"
                     src={Face_2}
                 />
-                <p className='text-lg'>Hello Neil!</p>
+                <p className='text-lg m-2'>Hello Neil!</p>
             </div>
             <div className="flex flex-row justify-between items-center gap-4 m-4 container mx-auto px-4">
                 {stats.map((stat, index) => (
@@ -62,7 +62,7 @@ const Home = () => {
                             <Tab key={subject} value={subject} label={subject} sx={tabStyles} />
                         ))}
                     </Tabs>
-                </Box>;
+                </Box>
                 <div className="pt-1">
                     {val === "Physics" &&
                         <div>
@@ -74,7 +74,7 @@ const Home = () => {
                                     <MultiLevelProgressBar completedSteps={2} ARLink= "https://lens.snap.com/experience/2f89d9d9-ce58-4098-b450-eb34c27bbeef" />
                                     <div className="flex flex-col items-center">
                                         {/* Progress in Center */}
-                                        <Progress style={{ width: "75px", height: "75px" }} strokeWidth={10} progress={75} subtitle="Quiz Score 15/70" />
+                                        <Progress style={{ width: "75px", height: "75px" }} strokeWidth={10} progress={75} subtitle="Quiz Score 15/70" ballStrokeWidth={20} />
 
                                         {/* Time Info Below Progress */}
                                         <div className="flex flex-row items-center mt-4 ">

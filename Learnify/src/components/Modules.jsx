@@ -7,7 +7,7 @@ import ARLogo from '../assets/Icons/noun-ar-white.svg'
 import { PHYSICS, BIOLOGY } from '../constants';
 
 
-const Modules = ({ item }) => {
+const Modules = () => {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -26,7 +26,7 @@ const Modules = ({ item }) => {
 
     const handleLaunchClick = (e, currentItem) => {
         // Use the currentItem passed to the function or fall back to the component prop
-        const linkItem = currentItem || item;
+        const linkItem = currentItem;
         
         if (!linkItem?.link) {
             e.preventDefault();
@@ -44,7 +44,7 @@ const Modules = ({ item }) => {
     };
 
     return (
-        <div className="w-full max-w-full overflow-x-hidden">
+        <div className="w-full  max-w-full overflow-x-hidden">
 
             <div className="flex border-b-2 pb-3 justify-center items-center border-lightGray w-full">
                 <img
@@ -75,7 +75,7 @@ const Modules = ({ item }) => {
 
                             sx={{
                                 borderRadius: 2,
-                                paddingX: 3,
+                                paddingX: 1,
                                 paddingY: 1,
                                 backgroundColor: val === label ? "darkGray" : "white",
                                 color: "black",
@@ -98,8 +98,8 @@ const Modules = ({ item }) => {
             </Box>
 
             {val === "Physics" &&
-                <div className="px-2 sm:px-4">
-                    <p className="text-lg font-medium">Physics Modules</p>
+                <div className="px-2 sm:px-4 bg-white border-2">
+                    <p className="text-lg pb-2 pt-4 font-medium">Physics Modules</p>
                     <div>
                         {PHYSICS.map((item, index) => (
 
@@ -154,8 +154,8 @@ const Modules = ({ item }) => {
                 </div>
             }
             {val === "Biology" &&
-                <div className="m-4">
-                    <p className="text-lg font-medium">Biology Modules</p>
+                <div className="p-4 bg-white border-2 pb-12 rounded-lg ">
+                    <p className="pb-2 text-lg  font-medium">Biology Modules</p>
                     <div>
                         {BIOLOGY.map((item, index) => (
 
@@ -177,7 +177,7 @@ const Modules = ({ item }) => {
                                     {/* <div className="w-full h-[4px]">
                 <LevelProgress progress={50} />
             </div> */}
-prr{item.link}
+
                                     <a
                                         href={item.link || "#"}
                                         onClick={handleLaunchClick}

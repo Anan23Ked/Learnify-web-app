@@ -10,7 +10,7 @@ export default function BottomNavBar() {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-300 shadow-lg z-50 w-full">
+    <div className="fixed bottom-0 left-0 right-0 bg-lightWhite border-t border-gray-300 shadow-lg z-50 w-full">
       <BottomNavigation
         showLabels
         value={value}

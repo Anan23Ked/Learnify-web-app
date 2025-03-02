@@ -13,6 +13,7 @@ export default {
         darkGray: "#474646",  // Dark Gray
         lightGray: "#A8A8A8",  // Light Gray
         whiteColor: "#ffffff", // White
+        lightWhite: "#f2f2f2"
       },
 
       fontFamily:{

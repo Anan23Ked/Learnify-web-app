@@ -26,12 +26,13 @@ const WelcomeScreen =({onGetStarted}) =>{
        Gear Up!
       </button>
 
-      <p className='text-sm'>Wondering what could you expect here?</p>
+      <p className='pt-4 text-sm'>Wondering what could you expect here?</p>
       <p className='text-sm'>🎮 AR Gamified Learnig</p>
       <p className='text-sm'>📲 Personalised Dashboard </p>
            <p className='text-sm'>✍️ Interactive Practice Exercises</p>
            <p className='text-sm'>🎥 Video Tutorials and Guides</p>
            </div>
+
         </div>
     )
 }

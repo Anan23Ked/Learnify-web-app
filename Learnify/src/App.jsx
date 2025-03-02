@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
 import BottomNavBar from './components/BottomNavigation';
@@ -18,20 +18,6 @@ const App = () => {
     localStorage.setItem("isAuthenticated", isAuthenticated);
   }, [isAuthenticated]);
   const [showWelcomeScreen, setShowWelcomeScreen] = useState(false);
-
-  // Handle successful login
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-    // Skip welcome screen for login
-    setShowWelcomeScreen(false);
-  };
-
-  // Handle successful signup
-  const handleSignup = () => {
-    setIsAuthenticated(true);
-    // Show welcome screen after signup
-    setShowWelcomeScreen(true);
-  };
 
   return (
     <Router>

@@ -32,19 +32,19 @@ export const featureItems = [
         id:2,
         icon: Icon2,
         title: "Engagement & Motivation",
-        description: "Game-like elements makes learning engaging"
+        description: "Gain deeper understanding of the concepts"
     },
     {
         id:3,
         icon: Icon3,
-        title: "Fun & Interactive",
-        description: "Game-like elements makes learning engaging"
+        title: "Real-time Feedback",
+        description: "Instant quiz feedback reinforces key concepts"
     },
     {
         id:4,
         icon: Icon4,
-        title: "Fun & Interactive",
-        description: "Game-like elements makes learning engaging"
+        title: "Accessible & Inclusive",
+        description: "Slow Learners grasp concepts faster"
     },
 ]
 
