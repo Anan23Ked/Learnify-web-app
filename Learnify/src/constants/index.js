@@ -70,7 +70,7 @@ export const stats = [
         title: "Electric Circuits",
         image: PhyModule1,
         description: "Build a virtual electric circuit to light up the park and understand the concepts of series and parallel connections.",
-        link: ""
+        link: "https://lens.snap.com/experience/dd1d4ac2-9c2b-4318-880a-6eb10d8cc4a1"
 
     },
     {
@@ -100,21 +100,21 @@ export const stats = [
  export const BIOLOGY = [
     {
         title:"Human Head",
-        image: BioModule1,
+        image: BioModule2,
         description: "Visualize the human head anatomy - skull, brain, sensory organs, muscles, and blood vessels.",
         link: "https://lens.snap.com/experience/34497d7b-d99d-4e87-924c-e1345f64b397"
     },
     {
         title:"Facial Muscles",
-        image: BioModule3,
+        image: BioModule1,
         description: "Explore the role and functions of facial muscles ranging from raising eyebrows to pouting to chewing.",
         link: "https://lens.snap.com/experience/aa29e045-c7dc-47c8-9a5b-8b768217c30c"
     },
     {
         title:"Human Skull",
-        image: BioModule2,
+        image: BioModule3,
         description: "Learn how the skull protects the brain and supports the face, while the brain controls body functions and cognition.",
-        link: ""
+        link: "https://lens.snap.com/experience/2eda2214-553c-436f-a74d-f52f24829809"
     },
 
  ]

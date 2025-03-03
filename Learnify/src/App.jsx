@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen relative w-full max-w-full overflow-hidden">
+      <div className="min-h-screen min-w-full flex flex-col items-center justify-center ">
         {!isAuthenticated ? (
           // Auth routes
           <Routes>

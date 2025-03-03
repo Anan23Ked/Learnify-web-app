@@ -5,11 +5,12 @@ import Box from "@mui/material/Box";
 import LearnifyLogo from '../assets/Learnify_Logo.png'
 import ARLogo from '../assets/Icons/noun-ar-white.svg'
 import { PHYSICS, BIOLOGY } from '../constants';
-
+import { useNavigate } from "react-router-dom";
 
 const Modules = () => {
 
     const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
 
     const [val, setVal] = useState('Biology');
     const handleTab = (e, newVal) => {
@@ -18,28 +19,43 @@ const Modules = () => {
 
     useEffect(() => {
         const returnTo = sessionStorage.getItem('returnTo');
+        console.log("returnTo",returnTo )
         if (returnTo) {
             sessionStorage.removeItem('returnTo');
-            window.history.replaceState(null, '', returnTo);
+            // window.history.replaceState(null, '', returnTo);
+            navigate(returnTo, { replace: true });
         }
-    }, [])
+    }, [navigate])
 
     const handleLaunchClick = (e, currentItem) => {
+        e.preventDefault();
         // Use the currentItem passed to the function or fall back to the component prop
         const linkItem = currentItem;
-        
-        if (!linkItem?.link) {
-            e.preventDefault();
-            setShowModal(true);
-        } else {
-            // Save current location before navigating
-            // const currentPage = window.location.href;
-            // // Store it in session storage
-            // sessionStorage.setItem('returnTo', currentPage);
-            // window.open(linkItem, "_self");
+        console.log("currentItem", currentItem)
+        // if (linkItem == "") {
+        //     e.preventDefault();
+        //     setShowModal(true);
+        // } else {
+        //     // Save current location before navigating
+        //     // const currentPage = window.location.href;
+        //     // // Store it in session storage
+        //     // sessionStorage.setItem('returnTo', currentPage);
+        //     window.open(linkItem, "_self");
 
-            sessionStorage.setItem('returnTo', window.location.href); // Save current page
-            window.location.href = linkItem.link; 
+        //     sessionStorage.setItem('returnTo', window.location.href); // Save current page
+        //     window.location.href = linkItem; 
+
+            
+        // }
+
+        if (currentItem && currentItem !== ""){
+            sessionStorage.setItem("returnTo", window.location.pathname)
+            window.location.href = currentItem
+        }
+        else{
+           
+            setShowModal(true)
+            
         }
     };
 
@@ -117,16 +133,10 @@ const Modules = () => {
 
 
                                 <div className="flex flex-col items-center gap-2">
-                                    {/* Progress Bar */}
-                                    {/* <div className="w-full h-[50px]">
-                        <LevelProgress progress={50} />
-
-                    </div> */}
-                                    
                                     <a
                                         href={item.link || "#"}
                                        
-                                        onClick={(e) => handleLaunchClick(e, item)}
+                                        onClick={(e) => handleLaunchClick(e, item.link)}
                                         className="bg-secondary border-2 border-primaryBlue rounded-xl flex flex-row items-center justify-center px-3 py-2 gap-2"
                                     >
                                         <img className="h-[24px] w-[24px] mt-1" src={ARLogo} />
@@ -171,16 +181,11 @@ const Modules = () => {
                                     </div>
                                 </div>
 
-                                {/* Progress and Launch Button */}
+                             
                                 <div className="flex flex-col items-center gap-2">
-                                    {/* Progress Bar */}
-                                    {/* <div className="w-full h-[4px]">
-                <LevelProgress progress={50} />
-            </div> */}
-
                                     <a
                                         href={item.link || "#"}
-                                        onClick={handleLaunchClick}
+                                        onClick={(e) => handleLaunchClick(e, item.link)}
                                         className="bg-secondary border-2 border-primaryBlue rounded-xl flex flex-row items-center justify-center px-3 py-2 gap-2"
                                     >
                                         <img className="h-[24px] w-[24px] mt-1" src={ARLogo} />
@@ -189,7 +194,7 @@ const Modules = () => {
 
                                     {/* Modal */}
                                     {showModal && (
-                                        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                                        <div className="fixed inset-0 p-10 flex items-center justify-center bg-black bg-opacity-50">
                                             <div className="bg-white p-6 rounded-lg shadow-lg text-center">
                                                 <p className="text-lg font-semibold mb-4">Hold on Learner🫷 <br />We are building the best experience for you 😊</p>
                                                 <button
