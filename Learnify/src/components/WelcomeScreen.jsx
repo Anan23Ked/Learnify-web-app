@@ -23,7 +23,7 @@ const WelcomeScreen =({onGetStarted}) =>{
             navigate('/modules')
         }}
         >
-       Gear Up!
+       Browse Modules
       </button>
 
       <p className='pt-4 text-sm'>Wondering what could you expect here?</p>

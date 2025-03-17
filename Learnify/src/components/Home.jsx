@@ -89,6 +89,11 @@ const Home = () => {
                                     <div className="w-[250px] flex items-center">
                                         <LevelProgress progress={50} level="Level 1: Simple Circuits" />
                                     </div>
+                                    <div className="flex pt-3 flex-col  items-center">
+                             <Progress style={{ width: "45px", height: "45px" }} strokeWidth={15} progress={70}  subtitle="Quiz"  />
+
+                                 <p className="text-xs">Score: 3/5</p>
+                             </div>
 
                                     
                                 </div>

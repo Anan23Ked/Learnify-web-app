@@ -131,18 +131,25 @@ return(
       </button>
     </div>
   </form>
-
+<div className=" flex items-center flex-col">
+  <div>
   <p className="mt-10 text-center text-sm text-gray-500">
-    Already a member?
-    
+    Already a member? </p>
+    </div>
+    <div>
     <a
       href="/login"
       className="font-semibold leading-6 text-secondary hover:text-primaryBlue"
     >
+      <button className="m-2 p-2" onClick={()=>navigate("/login")}>  
       Login
-    </a>
-  </p>
 
+      </button>
+     
+    
+    </a>
+ </div>
+</div>
   <div className="mt-10 flex flex-col gap-2 justify-center">
     <p className="text-xs">Login via</p>
     <div className="flex flex-row  gap-2 justify-center">

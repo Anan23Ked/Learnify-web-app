@@ -22,31 +22,12 @@ const Modules = () => {
         console.log("returnTo",returnTo )
         if (returnTo) {
             sessionStorage.removeItem('returnTo');
-            // window.history.replaceState(null, '', returnTo);
             navigate(returnTo, { replace: true });
         }
     }, [navigate])
 
     const handleLaunchClick = (e, currentItem) => {
-        e.preventDefault();
-        // Use the currentItem passed to the function or fall back to the component prop
-        const linkItem = currentItem;
-        console.log("currentItem", currentItem)
-        // if (linkItem == "") {
-        //     e.preventDefault();
-        //     setShowModal(true);
-        // } else {
-        //     // Save current location before navigating
-        //     // const currentPage = window.location.href;
-        //     // // Store it in session storage
-        //     // sessionStorage.setItem('returnTo', currentPage);
-        //     window.open(linkItem, "_self");
-
-        //     sessionStorage.setItem('returnTo', window.location.href); // Save current page
-        //     window.location.href = linkItem; 
-
-            
-        // }
+        e.preventDefault()
 
         if (currentItem && currentItem !== ""){
             sessionStorage.setItem("returnTo", window.location.pathname)
@@ -70,7 +51,7 @@ const Modules = () => {
             </div>
 
             <p className='m-4 text-3xl font-medium'>Subjects</p>
-
+            <p className='m-4 text-sm '>Browse various modules and launch your learning experience</p>
             <Box className="p-2 overflow-x-auto">
                 <Tabs
                     value={val}
@@ -132,7 +113,7 @@ const Modules = () => {
                                 </div>
 
 
-                                <div className="flex flex-col items-center gap-2">
+                                <div className="flex flex-col items-right gap-2">
                                     <a
                                         href={item.link || "#"}
                                        
