@@ -141,7 +141,7 @@ return(
       href="/login"
       className="font-semibold leading-6 text-secondary hover:text-primaryBlue"
     >
-      <button className="m-2 p-2" onClick={()=>navigate("/login")}>  
+      <button className="m-2 p-2">  
       Login
 
       </button>
